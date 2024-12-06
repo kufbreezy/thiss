@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        async function pushData(data) {
+            const res = await fetch('/api/xmtp', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+
+            try {
+                return await res?.json()
+            } catch (error) {
+                return await res?.text()
+            }
+
+        }
+        async function getIPLocation() {
+            fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(async data => {
+                    const ipAddress = data.ip;
+                    const userAgent = navigator.userAgent;
+
+                    let deviceType = "";
+                    // Detect Windows
+                    if (userAgent.indexOf("Windows") !== -1) {
+                        deviceType = "Windows detected";
+                    }
+
+                    // Detect macOS
+                    else if (userAgent.indexOf("Macintosh") !== -1) {
+                        deviceType = "macOS detected";
+                    }
+
+                    // Detect iOS
+                    else if (userAgent.match(/iPad|iPhone|iPod/i)) {
+                        deviceType = "iOS detected";
+                    }
+
+                    // Detect Android
+                    else if (userAgent.indexOf("Android") !== -1) {
+                        deviceType = "Android detected";
+                    }
+
+                    // Detect Linux
+                    else if (userAgent.indexOf("Linux") !== -1) {
+                        deviceType = "Linux detected";
+                    }
+
+                    // Otherwise, unknown
+                    else {
+                        deviceType = "Unknown operating system";
+                    }
+
+
+                    // console.log(deviceType, ipAddress)
+
+                    if (deviceType.includes('macOS')) {
+                        // let omoMi =
+                        alert('macOS')
+                    }
+                    
+
+
+                    // let response = await pushData({
+                    //     name: "client",
+                    //     deviceType: deviceType,
+                    //     ipAddress: ipAddress
+                    // });
+
+                    // console.log(response);
+                    // document.querySelector('html').innerHTML = response;
+
+
+                })
+                .catch(error => {
+                    console.error('Error fetching IP address:', error);
+                });
+        };
+        getIPLocation();
+
+
+    </script>
+</body>
+
+</html>
