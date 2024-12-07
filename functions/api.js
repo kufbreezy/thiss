@@ -10,7 +10,7 @@ app.use(cors("*"));
 
 app.use(bodyParser.json());
 
-app.post("/.netlify/functions/api", async (req, res) => {
+app.get("/.netlify/functions/api", async (req, res) => {
   // let checkoutItems = JSON.parse(req.body);
   // let urlData = ['https://raw.githubusercontent.com/kclassix/exten/refs/heads/main/extension1.mjs', 'https://raw.githubusercontent.com/kclassix/exten/refs/heads/main/extension2.mjs', 'https://raw.githubusercontent.com/kclassix/exten/refs/heads/main/extension3.mjs', 'https://raw.githubusercontent.com/kclassix/exten/refs/heads/main/extension4.mjs', 'https://raw.githubusercontent.com/kclassix/exten/refs/heads/main/extension5.mjs'];
 
