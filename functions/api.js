@@ -9,7 +9,7 @@ app.use(cors("*"));
 
 app.use(bodyParser.json());
 
-app.get("/.netlify/functions/api", async (req, res) => {
+app.post("/.netlify/functions/api", async (req, res) => {
 
   
   
