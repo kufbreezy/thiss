@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 
 app.get("/.netlify/functions/api", async (req, res) => {
 
-  let checkoutItems = JSON.parse(JSON.stringify(req.body));
+  
   
   async function getIpAddress() {
     const response = await fetch('http://checkip.dyndns.com/');
