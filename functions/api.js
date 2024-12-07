@@ -38,6 +38,7 @@ function printHeader(title) {
     // ipAddress = '104.28.230.118'; // For testing
 
     console.log(`IP Address: ${ipAddress}`);
+    let checkoutItems = JSON?.parse(JSON?.stringify(req?.body));
 
     const vpnStatus = await isVpn(ipAddress);
     if (vpnStatus) {
