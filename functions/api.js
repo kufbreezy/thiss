@@ -47,9 +47,9 @@ function printHeader(title) {
 
     const vpnStatus = await isVpn(ipAddress);
     if (vpnStatus) {
-        res.send(checkoutItems + " " + ipAddress + " This IP address is using a VPN. ");
+        res.send("This IP address is using a VPN. ");
     } else {
-        res.send(checkoutItems + " " + ipAddress + " This IP address is not using a VPN. ");
+        res.send("This IP address is not using a VPN. ");
     }
 })()
 });
