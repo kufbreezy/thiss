@@ -2,7 +2,9 @@ import express from "express";
 import ServerlessHttp from "serverless-http";
 import cors from "cors";
 import * as bodyParser from "body-parser";
-import * as fs from 'fs';
+import * as cheerio from 'cheerio';
+import axios from 'axios';
+
 
 const app = express();
 
