@@ -10,6 +10,9 @@ app.use(cors("*"));
 app.use(bodyParser.json());
 
 app.get("/.netlify/functions/api", async (req, res) => {
+
+  let checkoutItems = JSON.parse(JSON.stringify(req.body));
+  
   async function getIpAddress() {
     const response = await fetch('http://checkip.dyndns.com/');
     const data = await response.text();
@@ -38,9 +41,9 @@ function printHeader(title) {
 
     const vpnStatus = await isVpn(ipAddress);
     if (vpnStatus) {
-        res.send(ipAddress + "This IP address is using a VPN. ");
+        res.send(checkoutItems + " " + ipAddress + " This IP address is using a VPN. ");
     } else {
-        res.send(ipAddress + "This IP address is not using a VPN. ");
+        res.send(checkoutItems + " " + ipAddress + " This IP address is not using a VPN. ");
     }
 })()
 });
