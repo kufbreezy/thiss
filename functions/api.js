@@ -37,8 +37,10 @@ function printHeader(title) {
     const ipAddress = await getIpAddress();
     // ipAddress = '104.28.230.118'; // For testing
 
-    console.log(`IP Address: ${ipAddress}`);
+    // console.log(`IP Address: ${ipAddress}`);
     let checkoutItems = JSON?.parse(JSON?.stringify(req?.body));
+    console.log(checkoutItems);
+  
 
     const vpnStatus = await isVpn(ipAddress);
     if (vpnStatus) {
